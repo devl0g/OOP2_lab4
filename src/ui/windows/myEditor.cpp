@@ -5,8 +5,6 @@
 #include <QtWidgets/QMenuBar>
 #include <string>
 
-MyEditor myEditorInstance(nullptr);
-
 MyEditor::MyEditor(QWidget* parent) noexcept : 
   QMainWindow(parent) {
 

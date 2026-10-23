@@ -5,17 +5,19 @@
 #include "utils/logger.hpp"
 #include "ui/windows/myEditor.hpp"
 #include <QApplication>
-
-int argc = 0;
-static QApplication app(argc, nullptr);
+#include <memory>
 
 int main(int argc, char** argv) {
-  myEditorInstance.registerShape<DotShape>();
-  myEditorInstance.registerShape<LineShape>();
-  myEditorInstance.registerShape<OvalShape>();
-  myEditorInstance.registerShape<RectangleShape>();
+  QApplication app(argc, argv);
 
-  myEditorInstance.show();
+  std::unique_ptr<MyEditor> myEditorInstance { std::make_unique<MyEditor>() };
+
+  myEditorInstance->registerShape<DotShape>();
+  myEditorInstance->registerShape<LineShape>();
+  myEditorInstance->registerShape<OvalShape>();
+  myEditorInstance->registerShape<RectangleShape>();
+
+  myEditorInstance->show();
 
   Logger::info("window initiation");
   return app.exec();

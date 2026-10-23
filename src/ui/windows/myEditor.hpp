@@ -7,10 +7,6 @@
 #include <utility>
 #include "../components/shapesCanvas.hpp"
 
-class MyEditor;
-
-extern MyEditor myEditorInstance;
-
 class MyEditor : public QMainWindow {
   Q_OBJECT
 
