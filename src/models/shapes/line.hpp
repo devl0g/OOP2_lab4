@@ -2,7 +2,7 @@
 #define INCLUDE_MODEL_SHAPES_LINE_HPP_
 
 #include "./shape.hpp"
-#include <qicon.h>
+#include <QIcon>
 
 class LineShape : public Shape {
 public:
@@ -59,6 +59,9 @@ public:
     QPen pen;
     pen.setColor(QColor(255, 0, 0, 100));
     pen.setWidth(2);
+    QList<qreal> dashPattern;
+    dashPattern << 4 << 4;
+    pen.setDashPattern(dashPattern);
     painter.setPen(pen);
     painter.drawLine(startPosition.x, startPosition.y, endPosition.x, endPosition.y);
   }
